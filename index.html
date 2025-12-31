@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanjay Engineering - Happy New Year</title>
     <meta name="description" content="Sanjay Engineering & Fabrication Works (Shutters)" />
 
-    <meta property="og:title" content="Sanjay Engineering - Happy New Year" />
-    <meta property="og:description" content="Sanjay Engineering & Fabrication Works (Shutters)" />
-    <!-- <meta property="og:image" content="www.yourdomain.com" />
-    <meta property="og:url" content="www.yourdomain.com" /> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+    <link rel="manifest" href="./img/site.webmanifest">
+    
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sanjay Engineering - Happy New Year" />
+    <meta property="og:site_name" content="Sanjay Engineering & Fabrication Works" />
+    <meta property="og:description" content="Sanjay Engineering & Fabrication Works (Shutters)" />
+
+    <meta property="og:image" content="https://siddharthprakashan.github.io/sanjay-engineering/img/sai_baba.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Teko:wght@500&display=swap');
 
         * {
             box-sizing: border-box;
@@ -25,47 +33,46 @@
         body {
             background-color: #111;
             overflow: hidden;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            /* Align shop to bottom or center */
         }
 
-        /* --- The Building Structure (Brick Wall) --- */
+        /* --- 1. The Brick Wall Background --- */
         .wall {
             width: 100%;
             height: 100%;
-            background-color: #5d2828;
-            background-image:
-                linear-gradient(335deg, rgba(0, 0, 0, 0.3) 23px, transparent 23px),
-                linear-gradient(155deg, rgba(0, 0, 0, 0.3) 23px, transparent 23px),
-                linear-gradient(335deg, rgba(0, 0, 0, 0.3) 23px, transparent 23px),
-                linear-gradient(155deg, rgba(0, 0, 0, 0.3) 23px, transparent 23px);
+            /* Realistic brick pattern using CSS gradients */
+            background-color: #633636;
+            background-image: 
+                linear-gradient(335deg, rgba(0,0,0,0.3) 23px, transparent 23px),
+                linear-gradient(155deg, rgba(0,0,0,0.3) 23px, transparent 23px),
+                linear-gradient(335deg, rgba(0,0,0,0.3) 23px, transparent 23px),
+                linear-gradient(155deg, rgba(0,0,0,0.3) 23px, transparent 23px);
             background-size: 58px 58px;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
 
-        /* --- The Shop Frame --- */
+        /* --- 2. The Shop Frame --- */
         .shop-front {
             width: 90vw;
             max-width: 600px;
             height: 65vh;
             position: relative;
             background: #000;
-            border: 15px solid #444;
+            /* Grey concrete frame around the shutter */
+            border: 15px solid #555;
             border-bottom: none;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
-        /* --- The Shutter Housing (Top Box) --- */
+        /* --- 3. The Shutter Housing (Top Box) --- */
         .shutter-housing {
             width: 106%;
-            /* Slightly wider than opening */
             height: 60px;
             background: #1e6cb3;
             position: absolute;
@@ -73,10 +80,10 @@
             left: -3%;
             z-index: 10;
             border: 2px solid #104a80;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.5);
         }
 
-        /* --- The Blue Shutter Door --- */
+        /* --- 4. The Blue Shutter Door --- */
         .shutter {
             width: 100%;
             height: 100%;
@@ -84,64 +91,58 @@
             top: 0;
             left: 0;
             z-index: 5;
-            /* Creating the ribbed metal effect with CSS gradients */
-            background: repeating-linear-gradient(180deg,
-                    #1e6cb3 0px,
-                    #1e6cb3 10px,
-                    #155591 10px,
-                    #155591 20px);
-            border-bottom: 10px solid #104a80;
+            /* Ribbed metal effect */
+            background: repeating-linear-gradient(
+                180deg,
+                #1e6cb3 0px,
+                #1e6cb3 10px,
+                #155591 10px,
+                #155591 20px
+            );
+            /* Heavy metal bar at the bottom */
+            border-bottom: 15px solid #104a80;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             cursor: pointer;
             transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
         }
 
-        /* Animation class to open shutter */
+        /* Small handle/lock on the shutter */
+        .shutter::after {
+            content: '';
+            width: 60px;
+            height: 10px;
+            background: silver;
+            background: linear-gradient(90deg, #888, #fff, #888);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
         .shutter.open {
             transform: translateY(-98%);
         }
 
-        /* --- Text on the Shutter --- */
-        .shutter-text-box {
-            background: #f0f0f0;
-            padding: 15px 30px;
-            border: 2px solid #333;
-            border-radius: 4px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transform: rotate(-2deg);
-            /* Slight tilt for realism */
-        }
-
-        .shutter-text-box h2 {
-            color: #d32f2f;
-            font-size: clamp(1.2rem, 4vw, 2rem);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .click-hint {
-            margin-top: 10px;
-            color: #fff;
+        .tap-hint {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            animation: blink 1.5s infinite;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: blink 2s infinite;
         }
 
-        /* --- The Inside (Hidden Layer) --- */
+        /* --- 5. Inside the Shop (Revealed Content) --- */
         .inside-shop {
             width: 100%;
             height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            background: #050505;
-            /* Dark background for fireworks */
+            background: #0a0a0a;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -158,86 +159,94 @@
             height: 100%;
         }
 
-        /* --- LED Glowing Text --- */
-        .led-text {
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
-            color: #fff;
+        /* --- The Text Container --- */
+        .content-container {
             z-index: 2;
-            line-height: 1.5;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            /* Glassmorphism background for readability */
+            background: rgba(0, 0, 0, 0.3); 
+            backdrop-filter: blur(2px);
         }
 
-        .led-text h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
+        /* Company Name Style */
+        .company-name {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(2rem, 1vw, 4.5rem);
+            color: #00d2ff; /* Cyan Neon */
+            line-height: 1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 0px #fff,
+                0 0 10px #00d2ff,
+                0 0 20px #00d2ff,
+                0 0 40px #00d2ff;
+            border: 3px solid #00d2ff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4), inset 0 0 15px rgba(0, 210, 255, 0.4);
+            display: inline-block;
+        }
+
+        /* New Year Text Style */
+        .new-year-text {
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 20px;
+        }
+
+        .new-year-text h2 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
             color: #fff;
-            /* Multi-layered shadow for neon effect */
-            text-shadow:
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px #ff0055;
+        }
+
+        .new-year-text .year {
+            font-size: clamp(3rem, 12vw, 5rem);
+            font-weight: 900;
+            color: #fff;
+            /* Pink/Purple Neon */
+            text-shadow: 
                 0 0 5px #fff,
-                0 0 10px #fff,
+                0 0 10px #ff00de,
                 0 0 20px #ff00de,
-                0 0 30px #ff00de,
                 0 0 40px #ff00de,
-                0 0 55px #ff00de,
-                0 0 75px #ff00de;
+                0 0 60px #ff00de;
             animation: pulsate 1.5s infinite alternate;
-        }
-
-        .led-text span {
-            display: block;
-            font-size: clamp(3rem, 10vw, 6rem);
-            color: #fff;
-            text-shadow:
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #00e6e6,
-                0 0 30px #00e6e6,
-                0 0 40px #00e6e6;
         }
 
         /* --- Animations --- */
         @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         @keyframes pulsate {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            100% {
-                opacity: 0.9;
-                transform: scale(1.02);
-            }
+            0% { transform: scale(1); text-shadow: 0 0 20px #ff00de; }
+            100% { transform: scale(1.05); text-shadow: 0 0 50px #ff00de; }
         }
 
         .contact {
             position: absolute;
-            bottom: 85px;
+            bottom: 1.5vh;
             font-size: 11px;
             color: beige;
             text-align: center;
         }
 
-        .contact span {
-            font-size: 9px;
-        }
-
         .contact a {
+            font-size: 11px;
             color: inherit;
             text-decoration: none;
         }
+
+        .contact span {
+            display: block;
+        }
     </style>
 </head>
-
 <body>
 
     <div class="wall">
@@ -245,52 +254,58 @@
             <div class="shutter-housing"></div>
 
             <div class="shutter" id="mainShutter" onclick="openShop()">
-                <div class="shutter-text-box">
-                    <h2>Sanjay<br>Engineering</h2>
-                </div>
-                <div class="click-hint">Tap Shutter to Open</div>
+                <div class="tap-hint">Tap to Open</div>
             </div>
 
             <div class="inside-shop">
                 <canvas id="fireworks-canvas"></canvas>
-                <div class="led-text">
-                    <h1>HAPPY<br>NEW YEAR</h1>
-                    <span>2026</span>
+                
+                <div class="content-container">
+                    <div class="company-name">
+                        Sanjay Engineering & Fabrication Works
+                    </div>
+                    
+                    <div class="new-year-text">
+                        <h2>HAPPY NEW YEAR</h2>
+                        <div class="year">2026</div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="contact">
-            <a href="https://maps.app.goo.gl/Mw3rEDy59sHk3X6U9" target="_blank">
-                <p>Sanjay Engineering & Fabrication Works (Shutters)</p>
-                <span>NH566, Shantinagar, Vasco Da Gama, Mormugao, Goa 403802</span>
-            </a>
+            <span><a href="https://maps.app.goo.gl/Mw3rEDy59sHk3X6U9" target="_blank">
+                NH566, Shantinagar, Vasco Da Gama, Mormugao, Goa 403802
+            </a></span>
+            <span>
+
+                <a href="tel:+91 9422059161">9422059161</a> | <a href="tel:+91 7798902125">7798902125</a>
+            </span>
         </div>
     </div>
 
     <script>
         // --- Shutter Logic ---
         let isOpen = false;
-
+        
         function openShop() {
             if (isOpen) return;
             isOpen = true;
-
+            
             // Slide up the shutter
             document.getElementById('mainShutter').classList.add('open');
-
-            // Start the audio (optional placeholder) or fireworks
+            
+            // Start the fireworks
             startFireworks();
         }
 
-        // --- Fireworks Logic (Canvas) ---
+        // --- Fireworks Logic ---
         const canvas = document.getElementById('fireworks-canvas');
         const ctx = canvas.getContext('2d');
         let fireworks = [];
         let particles = [];
 
         function resizeCanvas() {
-            // Resize canvas to match the shop interior container
             const container = document.querySelector('.shop-front');
             canvas.width = container.clientWidth;
             canvas.height = container.clientHeight;
@@ -298,17 +313,11 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        function random(min, max) {
-            return Math.random() * (max - min) + min;
-        }
+        function random(min, max) { return Math.random() * (max - min) + min; }
 
-        // Particle Class
         class Particle {
             constructor(x, y, color) {
-                this.x = x;
-                this.y = y;
-                this.color = color;
-                // Explosion velocity
+                this.x = x; this.y = y; this.color = color;
                 const angle = random(0, Math.PI * 2);
                 const speed = random(1, 4);
                 this.vx = Math.cos(angle) * speed;
@@ -316,14 +325,10 @@
                 this.alpha = 1;
                 this.decay = random(0.015, 0.03);
             }
-
             update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.vy += 0.05; // gravity
-                this.alpha -= this.decay;
+                this.x += this.vx; this.y += this.vy;
+                this.vy += 0.05; this.alpha -= this.decay;
             }
-
             draw() {
                 ctx.save();
                 ctx.globalAlpha = this.alpha;
@@ -335,77 +340,53 @@
             }
         }
 
-        // Firework Class (The rocket going up)
         class Firework {
             constructor() {
                 this.x = random(canvas.width * 0.1, canvas.width * 0.9);
                 this.y = canvas.height;
-                this.targetY = random(canvas.height * 0.1, canvas.height * 0.4);
-                this.speed = random(3, 6);
+                this.targetY = random(canvas.height * 0.1, canvas.height * 0.5);
+                this.speed = random(3, 7);
                 this.color = `hsl(${random(0, 360)}, 100%, 50%)`;
                 this.exploded = false;
             }
-
             update() {
                 this.y -= this.speed;
                 if (this.y <= this.targetY) {
                     this.exploded = true;
-                    this.createParticles();
+                    for (let i = 0; i < 40; i++) particles.push(new Particle(this.x, this.y, this.color));
                 }
             }
-
             draw() {
                 if (!this.exploded) {
                     ctx.fillStyle = this.color;
                     ctx.fillRect(this.x, this.y, 3, 10);
                 }
             }
-
-            createParticles() {
-                for (let i = 0; i < 40; i++) {
-                    particles.push(new Particle(this.x, this.y, this.color));
-                }
-            }
         }
 
         function loop() {
-            // Create trails
             ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Add new fireworks randomly
-            if (Math.random() < 0.05) { // Frequency
-                fireworks.push(new Firework());
-            }
+            if (Math.random() < 0.05) fireworks.push(new Firework());
 
-            // Update fireworks
-            for (let i = fireworks.length - 1; i >= 0; i--) {
-                fireworks[i].update();
-                fireworks[i].draw();
-                if (fireworks[i].exploded) {
-                    fireworks.splice(i, 1);
-                }
-            }
+            fireworks.forEach((fw, i) => {
+                fw.update(); fw.draw();
+                if (fw.exploded) fireworks.splice(i, 1);
+            });
 
-            // Update particles
-            for (let i = particles.length - 1; i >= 0; i--) {
-                particles[i].update();
-                particles[i].draw();
-                if (particles[i].alpha <= 0) {
-                    particles.splice(i, 1);
-                }
-            }
+            particles.forEach((p, i) => {
+                p.update(); p.draw();
+                if (p.alpha <= 0) particles.splice(i, 1);
+            });
 
             requestAnimationFrame(loop);
         }
 
         function startFireworks() {
-            // Delay slightly to match shutter opening
-            setTimeout(() => {
-                loop();
-            }, 500);
+            // Small delay to sync with shutter opening visually
+            setTimeout(() => { loop(); }, 300);
         }
     </script>
 </body>
-
 </html>
